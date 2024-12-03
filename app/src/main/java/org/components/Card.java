@@ -1,6 +1,5 @@
 package org.components;
 
-import org.checkerframework.checker.units.qual.h;
 import org.enums.Suite;
 import org.enums.Value;
 
@@ -27,7 +26,7 @@ public class Card {
   public String toString() {
 
     if (!hidden) {
-      return "Queen of Hearts";
+      return value.getDisplayName() + " of " + suite.getDisplayName();
     }
 
     return "Hidden";
