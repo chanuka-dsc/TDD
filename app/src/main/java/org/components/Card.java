@@ -5,16 +5,18 @@ import org.enums.Value;
 
 public class Card {
 
+  private boolean hidden = true;
+
   public Card(Value value, Suite suite) {
 
   }
 
   public boolean isHidden() {
-    return true;
+    return hidden;
   }
 
   public void show() {
-
+    hidden = false;
   }
 
   @Override
