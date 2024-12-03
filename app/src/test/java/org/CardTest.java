@@ -2,15 +2,22 @@ package org;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.enums.Suite;
 import org.junit.jupiter.api.Test;
 
 public class CardTest {
 
   @Test
+  void testSuiteEnum() {
+    Suite suite = Suite.HEARTS;
+    assertEquals(suite.getDisplayName(), "Hearts");
+  }
+
+  @Test
   void testShowCard() {
 
-    Value value = Value.QUEEN;
     Suite suite = Suite.HEARTS;
+    Value value = Value.QUEEN;
 
     Card card = new Card(value, suite);
 
