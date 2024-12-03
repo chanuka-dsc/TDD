@@ -13,5 +13,9 @@ public enum Value {
   TEN,
   JACK,
   QUEEN,
-  KING
+  KING;
+
+  public String getDisplayName() {
+    return "Jack";
+  }
 }
