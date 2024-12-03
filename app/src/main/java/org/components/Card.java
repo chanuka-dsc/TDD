@@ -1,5 +1,6 @@
 package org.components;
 
+import org.checkerframework.checker.units.qual.h;
 import org.enums.Suite;
 import org.enums.Value;
 
@@ -21,6 +22,11 @@ public class Card {
 
   @Override
   public String toString() {
+
+    if (!hidden) {
+      return "Queen of Hearts";
+    }
+
     return "Hidden";
   }
 }
