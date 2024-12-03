@@ -20,20 +20,20 @@ public class CardTest {
     assertEquals(value.getDisplayName(), "Jack");
   }
 
-  // @Test
-  // void testShowCard() {
+  @Test
+  void testShowCard() {
 
-  // Suite suite = Suite.HEARTS;
-  // Value value = Value.QUEEN;
+    Suite suite = Suite.HEARTS;
+    Value value = Value.QUEEN;
 
-  // Card card = new Card(value, suite);
+    Card card = new Card(value, suite);
 
-  // assertEquals(card.isHidden(), true);
-  // assertEquals(card.toString(), "Hidden");
+    assertEquals(card.isHidden(), true);
+    assertEquals(card.toString(), "Hidden");
 
-  // card.show();
-  // assertEquals(card.isHidden(), false);
-  // assertEquals(card.toString(), "Queen of Hearts");
+    card.show();
+    assertEquals(card.isHidden(), false);
+    assertEquals(card.toString(), "Queen of Hearts");
 
-  // }
+  }
 }
