@@ -3,7 +3,7 @@ package org;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.enums.Suite;
-import org.enums.Value;;
+import org.enums.Value;
 import org.junit.jupiter.api.Test;
 
 public class CardTest {
@@ -17,7 +17,7 @@ public class CardTest {
   @Test
   void testValueEnum() {
     Value value = Value.JACK;
-    assertEquals(suite.getDisplayName(), "Jack");
+    assertEquals(value.getDisplayName(), "Jack");
   }
 
   // @Test
