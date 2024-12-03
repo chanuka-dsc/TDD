@@ -3,6 +3,7 @@ package org;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.enums.Suite;
+import org.enums.Value;;
 import org.junit.jupiter.api.Test;
 
 public class CardTest {
