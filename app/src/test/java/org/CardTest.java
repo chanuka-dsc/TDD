@@ -13,6 +13,12 @@ public class CardTest {
     assertEquals(suite.getDisplayName(), "Hearts");
   }
 
+  @Test
+  void testValueEnum() {
+    Value value = Value.JACK;
+    assertEquals(suite.getDisplayName(), "Jack");
+  }
+
   // @Test
   // void testShowCard() {
 
