@@ -13,7 +13,7 @@ public enum Suite {
   }
 
   public String getDisplayName() {
-    return "Hearts";
+    return displayName;
   }
 
 }
