@@ -16,4 +16,9 @@ public class Card {
   public void show() {
 
   }
+
+  @Override
+  public String toString() {
+    return "Hidden";
+  }
 }
