@@ -8,7 +8,6 @@ import org.enums.Suite;
 import org.enums.Value;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,5 +30,21 @@ public class DeckTest {
         // Ensure all cards are unique
         Set<Card> uniqueCards = new HashSet<>(deck.getCards());
         assertEquals(52, uniqueCards.size());
+    }
+
+    // Test to check for duplicates in the deck
+    /* This test validates that there are no duplicate cards in the deck.
+     * Since the current Deck implementation creates duplicates, this test will fail.
+     */
+    @Test
+    void testDeckHasNoDuplicates() {
+        // Create a deck
+        Deck deck = new Deck();
+
+        // Check for duplicates
+        Set<Card> uniqueCards = new HashSet<>(deck.getCards());
+
+        // Assert that the number of unique cards matches the total number of cards
+        assertEquals(deck.getCards().size(), uniqueCards.size(), "Deck contains duplicate cards!");
     }
 }
