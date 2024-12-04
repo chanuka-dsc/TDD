@@ -15,10 +15,9 @@ import java.util.Set;
 public class DeckTest {
 
     // Test the initialization of the deck
-    /* As I run a failing test because right now the deck class doew not exist, So this test is bound to fail
-     * I will create the class Deck in the components package.
-     * Why I added hash set and set is to check for no duplicates in the deck,
-     * getCards() method should return the list of cards in the deck.
+    /* As the class of deck exists now so the tests won't fail due to missing code.
+     * As the getCards method is just a placeholder method and doesn't initialise with actual cards but simply return an empty list.
+     * Test is bound to fail
      */
     @Test
     void testDeckInitialization() {
@@ -26,6 +25,7 @@ public class DeckTest {
         Deck deck = new Deck();
 
         // Check that it has 52 cards
+        // It will now compile but fail because the deck doesn’t have 52 cards.
         assertEquals(52, deck.getCards().size());
 
         // Ensure all cards are unique
