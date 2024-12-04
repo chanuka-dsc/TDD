@@ -47,4 +47,10 @@ public class DeckTest {
         // Assert that the number of unique cards matches the total number of cards
         assertEquals(deck.getCards().size(), uniqueCards.size(), "Deck contains duplicate cards!");
     }
+
+    // Issue was that as using hashset to check for duplicates, it was not able to identify duplicates as the cards were identical.
+    // The test logic was incorrect as it was checking for duplicates in the deck which was not possible as the deck was initialized with identical cards.
+    // As by default, By default: hashCode() returns a unique value based on the object's memory reference and 
+    // equals() compares references (not the actual content). Since the Card class doesn’t override these methods, 
+    // the HashSet considers all Card objects unique even if their Value and Suite are identical.
 }
