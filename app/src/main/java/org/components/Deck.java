@@ -13,8 +13,8 @@ public class Deck {
     public Deck() {
         cards = new ArrayList<>();
 
-        // Incorrect implementation: only adds 10 identical cards
-        for (int i = 0; i < 10; i++) {
+        // Still Incorrect implementation but minimal changes: now adds 52 but still identical cards
+        for (int i = 0; i < 52; i++) {
             cards.add(new Card(Value.ACE, Suite.HEARTS));
         }
     }

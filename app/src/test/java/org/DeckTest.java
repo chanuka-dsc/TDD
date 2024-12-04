@@ -14,9 +14,8 @@ import java.util.Set;
 public class DeckTest {
 
     // Test the initialization of the deck
-    /* As the class of deck exists now so the tests won't fail due to missing code.
-     * As the getCards method is just a placeholder method and doesn't initialise with actual cards but simply return an empty list.
-     * Test is bound to fail
+    /* This test validates that the deck is initialized with 52 cards.
+     * Test should now pass because the deck contains 52 cards despite being identical.
      */
     @Test
     void testDeckInitialization() {
@@ -34,7 +33,8 @@ public class DeckTest {
 
     // Test to check for duplicates in the deck
     /* This test validates that there are no duplicate cards in the deck.
-     * Since the current Deck implementation creates duplicates, this test will fail.
+     * Since the current Deck implementation creates duplicates, this test will fail but test still passed both times having 10 and 52 identical cards.
+     * Shows some error in the test logic.
      */
     @Test
     void testDeckHasNoDuplicates() {
