@@ -132,14 +132,27 @@ public class DeckTest {
         Deck deck = new Deck();
         List<Card> originalOrder = new ArrayList<>(deck.getCards());
 
+        for (Card c : originalOrder) {
+            c.show();
+        }
+
+        for (Card c : deck.getCards()) {
+            c.show();
+        }
+
         deck.shuffle(); // Apply shuffle logic
+
+        for (Card c : deck.getCards()) {
+            c.show();
+            System.out.println(c);
+        }
 
         // Ensure cards are evenly distributed across the deck
         int[] positionChangeCounts = new int[52]; // Tracks position changes for each card
         for (int i = 0; i < originalOrder.size(); i++) {
             int newIndex = deck.getCards().indexOf(originalOrder.get(i));
             int positionChange = Math.abs(newIndex - i);
-            positionChangeCounts[positionChange]++;
+            positionChangeCounts[i] = positionChange;
         }
 
         // Check for a reasonable distribution of position changes
