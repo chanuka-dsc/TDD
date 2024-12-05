@@ -27,9 +27,13 @@ public class Deck {
         return cards;
     }
 
-    // Adding the addCard method to add a card to the deck
-    public void addCard(Card card) {
+    // Adding the addCard method to add a card to the deck and check if the card is already in the deck
+    public boolean addCard(Card card) {
+        if (cards.contains(card)) {
+            return false;
+        }
         cards.add(card);
+        return true;
 
     }
 
