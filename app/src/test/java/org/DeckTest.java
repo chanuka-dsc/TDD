@@ -198,8 +198,11 @@ public class DeckTest {
     @Test
     void testToAddACardToTheDeck() {
         Deck d = new Deck();
+        Card c = d.drawCard();
 
-        d.addCard();
+        d.addCard(c);
+
+        assertTrue(d.getCards().contains(c));
     }
 
 }
