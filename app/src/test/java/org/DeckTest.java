@@ -125,14 +125,15 @@ public class DeckTest {
     }
 
     // WILL FAIL THIS TIME AS IN THE CODE SHUFFLE LOGIC IS INCORRECT
-    // logic might fail because it doesn’t randomize the deck enough to produce a wide distribution of changes.
+    // logic might fail because it doesn’t randomize the deck enough to produce a
+    // wide distribution of changes.
     @Test
     void testDeckEnsuresGlobalRandomness() {
         Deck deck = new Deck();
         List<Card> originalOrder = new ArrayList<>(deck.getCards());
-    
+
         deck.shuffle(); // Apply shuffle logic
-    
+
         // Ensure cards are evenly distributed across the deck
         int[] positionChangeCounts = new int[52]; // Tracks position changes for each card
         for (int i = 0; i < originalOrder.size(); i++) {
@@ -140,7 +141,7 @@ public class DeckTest {
             int positionChange = Math.abs(newIndex - i);
             positionChangeCounts[positionChange]++;
         }
-    
+
         // Check for a reasonable distribution of position changes
         boolean hasWideDistribution = false;
         for (int change : positionChangeCounts) {
@@ -149,8 +150,9 @@ public class DeckTest {
                 break;
             }
         }
-    
-        assertTrue(hasWideDistribution, 
-            "The shuffle should create a wide distribution of position changes.");
+
+        assertTrue(hasWideDistribution,
+                "The shuffle should create a wide distribution of position changes.");
     }
+
 }

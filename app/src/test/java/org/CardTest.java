@@ -37,4 +37,26 @@ public class CardTest {
     assertEquals(card.toString(), "Queen of Hearts");
 
   }
+
+  @Test
+  void testGetCardVaLue() {
+
+    Suite suite = Suite.HEARTS;
+    Value value = Value.KING;
+
+    Card card = new Card(value, suite);
+
+    assertEquals(card.getValue(), Value.KING);
+  }
+
+  @Test
+  void testGetCardSuite() {
+
+    Suite suite = Suite.DIAMONDS;
+    Value value = Value.KING;
+
+    Card card = new Card(value, suite);
+
+    assertEquals(card.getSuite(), Suite.DIAMONDS);
+  }
 }
