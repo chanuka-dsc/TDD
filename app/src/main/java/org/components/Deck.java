@@ -29,11 +29,12 @@ public class Deck {
 
     // Now making the shuffle method to swap every second card with the card that comes after it (if possible).
     public void shuffle() {
-        for (int i = 0; i < cards.size() - 1; i += 2) {
-            // Swap every second card with the next one
+        for (int i = 0; i < cards.size(); i++) {
+            // Generate a random index to swap with
+            int swapIndex = (int) (Math.random() * cards.size());
             Card temp = cards.get(i);
-            cards.set(i, cards.get(i + 1));
-            cards.set(i + 1, temp);
+            cards.set(i, cards.get(swapIndex));
+            cards.set(swapIndex, temp);
         }
     }
 }

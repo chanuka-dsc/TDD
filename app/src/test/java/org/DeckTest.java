@@ -101,22 +101,52 @@ public class DeckTest {
 
     // Added a failing test to verify that shuffle method changes the order of cards
     // but total number of cards remains the same
-    // TEST WILL PASS AS THE CODE FOR SHUFFLE METHOD IS NOT CORRECT but correct enough to verify if the shuffle affects a sufficient number of cards. 
-    // 
+    // TEST WILL PASS AS THE CODE FOR SHUFFLE METHOD IS CORRECT test should now pass
+    // because the deck order is sufficiently randomized.
+
     @Test
-    void testDeckOrderChangesAfterShuffle() {
+    void testDeckHalfCardsChangePositionAfterShuffle() {
+        Deck deck = new Deck();
+        List<Card> originalOrder = new ArrayList<>(deck.getCards());
+
+        deck.shuffle(); // Apply shuffle logic
+
+        // Count the number of cards that have moved from their original positions
+        int changedPositions = 0;
+        for (int i = 0; i < originalOrder.size(); i++) {
+            if (!originalOrder.get(i).equals(deck.getCards().get(i))) {
+                changedPositions++;
+            }
+        }
+
+        // Assert that more than half the deck changes position
+        assertTrue(changedPositions > 26, "More than half the deck should change position after shuffling.");
+    }
+
+    // Adding another test to check randomness that is ensure at least 40 cards move more than 10 positions. 
+    // If fewer cards move significantly, the shuffle is not random enough.
+    // WILL FAIL THIS TIME AS IN THE CODE SHUFFLE LOGIC IS INCORRECT
+    @Test
+    void testDeckEnsuresGlobalRandomness() {
         Deck deck = new Deck();
         List<Card> originalOrder = new ArrayList<>(deck.getCards());
     
         deck.shuffle(); // Apply shuffle logic
     
-        // Check that the order has changed
-        assertNotEquals(originalOrder, deck.getCards(), "The deck order should change after shuffling.");
+        // Count cards that moved significantly (more than 10 positions)
+        int significantlyMovedCards = 0;
+        for (int i = 0; i < originalOrder.size(); i++) {
+            int newIndex = deck.getCards().indexOf(originalOrder.get(i));
+            if (Math.abs(newIndex - i) > 10) { // Check if the card moved more than 10 positions
+                significantlyMovedCards++;
+            }
+        }
+    
+        // Assert that at least 40 cards moved significantly
+        assertTrue(significantlyMovedCards >= 40, 
+            "At least 40 cards should move more than 10 positions to ensure sufficient randomness.");
     }
     
     
-    
-    
-     
 
 }
