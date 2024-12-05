@@ -167,12 +167,14 @@ public class DeckTest {
         assertTrue(hasWideDistribution,
                 "The shuffle should create a wide distribution of position changes.");
     }
-    
+
     @Test
     void testGetCard() {
         Deck d = new Deck();
 
         Card c = d.drawCard();
+
+        assertNotNull(c);
 
     }
 }
