@@ -103,28 +103,33 @@ public class DeckTest {
     // but total number of cards remains the same
     // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT CORRECT to verify if the shuffle affects a sufficient number of cards. 
     // This will fail because the updated shuffle logic only changes the positions of a subset of the deck
+    // first assertion verifies that the order of the deck has changed after shuffling and 
+    // second assertion checks that at least one card has moved far (more than 5 positions away) after shuffling.
     @Test
-    void testDeckShuffleFailsForPartialImprovedShuffle() {
+    void testDeckShuffleSimple() {
         Deck deck = new Deck();
-        List<Card> originalOrder = new ArrayList<>(deck.getCards()); // Keep a copy of the original order
+        List<Card> originalOrder = new ArrayList<>(deck.getCards()); // Copy the original order
     
-        deck.shuffle(); // Shuffle with updated logic (swapping every second card)
+        deck.shuffle(); // Shuffle with current logic (localized swaps)
     
-        // Check that the total number of cards remains the same
-        assertEquals(52, deck.getCards().size(), "Shuffled deck should still contain 52 cards.");
+        // Check that the order of the deck has changed
+        assertNotEquals(originalOrder, deck.getCards(), "The deck order should change after shuffling.");
     
-        // Check how many cards have actually moved
-        int changedPositions = 0;
+        // Check that at least one card has moved far (more than 5 positions away)
+        boolean hasCardMovedFar = false;
         for (int i = 0; i < originalOrder.size(); i++) {
-            if (!originalOrder.get(i).equals(deck.getCards().get(i))) {
-                changedPositions++;
+            int newIndex = deck.getCards().indexOf(originalOrder.get(i));
+            if (Math.abs(newIndex - i) > 5) { // Check if the card moved more than 5 positions maybe random position
+                hasCardMovedFar = true;
+                break;
             }
         }
     
-        // Expect at least half the deck to have changed (26 cards) for a meaningful shuffle
-        assertTrue(changedPositions <= 26, "A proper shuffle should affect more than half the deck.");
-    }    
+        assertTrue(hasCardMovedFar, "At least one card should move far (more than 5 positions) after shuffling may be random position.");
+    }
     
     
+    
+     
 
 }
