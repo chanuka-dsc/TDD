@@ -213,7 +213,16 @@ public class DeckTest {
 
         // You should not be able to add a card that exists or if the deck is full
         assertFalse(d.addCard(c));
-        
+
+    }
+
+    @Test
+    void testToAddNullCard() {
+        Deck d = new Deck();
+        Card c = null;
+
+        // You should not be able to add a null card
+        assertFalse(d.addCard(c));
 
     }
 }
