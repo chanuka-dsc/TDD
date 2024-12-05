@@ -28,8 +28,9 @@ public class Deck {
     }
 
     // Adding the addCard method to add a card to the deck and check if the card is already in the deck
+    // card is null, return false
     public boolean addCard(Card card) {
-        if (cards.contains(card)) {
+        if (cards.contains(card) || card == null) {
             return false;
         }
         cards.add(card);
