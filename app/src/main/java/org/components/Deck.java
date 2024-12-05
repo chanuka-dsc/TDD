@@ -26,6 +26,11 @@ public class Deck {
         return cards;
     }
 
+    //Placeholder method to add card to compile the test
+    public void addCard() {
+
+    }
+
     // Adding the drawCard method to draw a card from the deck and remove it from the deck
     // if the deck is empty, return null
     public Card drawCard(){
