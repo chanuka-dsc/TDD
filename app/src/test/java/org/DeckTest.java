@@ -101,7 +101,7 @@ public class DeckTest {
 
     // Added a failing test to verify that shuffle method changes the order of cards
     // but total number of cards remains the same
-    // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT IMPLEMENTED SO TEST WILL NOT COMPILE
+    // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT IMPLEMENTED YET BUT NOW TEST WILL COMPILE
     @Test
     void testDeckShuffle() {
         Deck deck = new Deck();
