@@ -171,7 +171,7 @@ public class DeckTest {
     void testGetCard() {
         Deck d = new Deck();
 
-        Card c = d.getCard();
+        Card c = d.drawCard();
 
     }
 }
