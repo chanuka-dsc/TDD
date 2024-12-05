@@ -195,4 +195,11 @@ public class DeckTest {
 
     }
 
+    @Test
+    void testToAddACardToTheDeck() {
+        Deck d = new Deck();
+
+        d.addCard();
+    }
+
 }
