@@ -3,6 +3,7 @@ package org.components;
 import org.enums.Suite;
 import org.enums.Value;
 
+import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,12 +30,13 @@ public class Deck {
 
     // Now making the shuffle method to swap every second card with the card that comes after it (if possible).
     public void shuffle() {
-        for (int i = 0; i < cards.size(); i++) {
+        Collections.shuffle(cards); // Using the built-in shuffle method to shuffle the deck
+        //for (int i = 0; i < cards.size(); i++) {
             // Generate a random index to swap with
-            int swapIndex = (int) (Math.random() * cards.size());
-            Card temp = cards.get(i);
-            cards.set(i, cards.get(swapIndex));
-            cards.set(swapIndex, temp);
+        //    int swapIndex = (int) (Math.random() * cards.size());
+        //    Card temp = cards.get(i);
+        //    cards.set(i, cards.get(swapIndex));
+        //    cards.set(swapIndex, temp);
         }
-    }
+    
 }

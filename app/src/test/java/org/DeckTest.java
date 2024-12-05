@@ -2,6 +2,7 @@ package org;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.checkerframework.checker.units.qual.t;
 import org.components.Card;
 import org.components.Deck;
 import org.junit.jupiter.api.Test;
@@ -123,9 +124,8 @@ public class DeckTest {
         assertTrue(changedPositions > 26, "More than half the deck should change position after shuffling.");
     }
 
-    // Adding another test to check randomness that is ensure at least 40 cards move more than 10 positions. 
-    // If fewer cards move significantly, the shuffle is not random enough.
     // WILL FAIL THIS TIME AS IN THE CODE SHUFFLE LOGIC IS INCORRECT
+    // logic might fail because it doesn’t randomize the deck enough to produce a wide distribution of changes.
     @Test
     void testDeckEnsuresGlobalRandomness() {
         Deck deck = new Deck();
@@ -133,20 +133,24 @@ public class DeckTest {
     
         deck.shuffle(); // Apply shuffle logic
     
-        // Count cards that moved significantly (more than 10 positions)
-        int significantlyMovedCards = 0;
+        // Ensure cards are evenly distributed across the deck
+        int[] positionChangeCounts = new int[52]; // Tracks position changes for each card
         for (int i = 0; i < originalOrder.size(); i++) {
             int newIndex = deck.getCards().indexOf(originalOrder.get(i));
-            if (Math.abs(newIndex - i) > 10) { // Check if the card moved more than 10 positions
-                significantlyMovedCards++;
+            int positionChange = Math.abs(newIndex - i);
+            positionChangeCounts[positionChange]++;
+        }
+    
+        // Check for a reasonable distribution of position changes
+        boolean hasWideDistribution = false;
+        for (int change : positionChangeCounts) {
+            if (change > 10) { // More than 10 cards moved by this amount
+                hasWideDistribution = true;
+                break;
             }
         }
     
-        // Assert that at least 40 cards moved significantly
-        assertTrue(significantlyMovedCards >= 40, 
-            "At least 40 cards should move more than 10 positions to ensure sufficient randomness.");
+        assertTrue(hasWideDistribution, 
+            "The shuffle should create a wide distribution of position changes.");
     }
-    
-    
-
 }
