@@ -26,9 +26,9 @@ public class Deck {
         return cards;
     }
 
-    // Returns a new card with the value of ACE and the suite of SPADES
+    // Adding the drawCard method to draw a card from the deck
     public Card drawCard(){
-        return new Card(Value.ACE, Suite.SPADES);
+        return cards.remove(0);
     }
 
     // Adding correct implementation of deck with 52 unique cards and no identical
