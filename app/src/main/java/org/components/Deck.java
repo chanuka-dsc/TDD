@@ -26,8 +26,12 @@ public class Deck {
         return cards;
     }
 
-    // Adding the drawCard method to draw a card from the deck
+    // Adding the drawCard method to draw a card from the deck and remove it from the deck
+    // if the deck is empty, return null
     public Card drawCard(){
+        if(cards.size() == 0){
+            return null;
+        }
         return cards.remove(0);
     }
 
