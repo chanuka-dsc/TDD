@@ -1,5 +1,6 @@
 package org.components;
 
+import org.checkerframework.checker.units.qual.C;
 import org.enums.Suite;
 import org.enums.Value;
 
@@ -26,8 +27,9 @@ public class Deck {
         return cards;
     }
 
-    //Placeholder method to add card to compile the test
-    public void addCard() {
+    // Adding the addCard method to add a card to the deck
+    public void addCard(Card card) {
+        cards.add(card);
 
     }
 
