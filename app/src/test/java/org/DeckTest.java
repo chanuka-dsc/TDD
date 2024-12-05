@@ -174,10 +174,25 @@ public class DeckTest {
 
         Card c = d.drawCard();
 
+        // check if a card is returned
         assertNotNull(c);
-
         // check if the card was taken from the deck
         assertFalse(d.getCards().contains(c));
 
     }
+
+    @Test
+    void testGetCardFromEmptyDeck() {
+        Deck d = new Deck();
+
+        for (int i = 0; i < 52; i++) {
+            d.drawCard();
+        }
+
+        // try to get a card from the empty deck
+
+        d.drawCard();
+
+    }
+
 }
