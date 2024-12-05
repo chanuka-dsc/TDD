@@ -26,4 +26,9 @@ public class Deck {
     }
 
     // Adding correct implementation of deck with 52 unique cards and no identical cards to see all tests pass.
+
+    // Placeholder for shuffle method
+    public void shuffle() {
+        // Do nothing for now only for test to compile - will implement logic later
+    }
 }
