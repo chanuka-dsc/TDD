@@ -193,7 +193,7 @@ public class DeckTest {
 
         // try to get a card from the empty deck
 
-        d.drawCard();
+        assertNull(d.drawCard());
 
     }
 
