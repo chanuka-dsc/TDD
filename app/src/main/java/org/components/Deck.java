@@ -26,6 +26,11 @@ public class Deck {
         return cards;
     }
 
+    // PLaceholder method so that test compile but will fail
+    public Card drawCard(){
+        return null;
+    }
+
     // Adding correct implementation of deck with 52 unique cards and no identical
     // cards to see all tests pass.
 

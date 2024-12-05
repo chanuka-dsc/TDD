@@ -124,6 +124,7 @@ public class DeckTest {
         assertTrue(changedPositions > 26, "More than half the deck should change position after shuffling.");
     }
 
+    // Test will pass shuffle works correctly
     // logic might fail because it doesn’t randomize the deck enough to produce a
     // wide distribution of changes.
     @Test
@@ -166,7 +167,7 @@ public class DeckTest {
         assertTrue(hasWideDistribution,
                 "The shuffle should create a wide distribution of position changes.");
     }
-
+    
     @Test
     void testGetCard() {
         Deck d = new Deck();
