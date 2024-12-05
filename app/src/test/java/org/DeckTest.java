@@ -6,6 +6,7 @@ import org.components.Card;
 import org.components.Deck;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +14,8 @@ import java.util.Set;
 public class DeckTest {
 
     // Test the initialization of the deck
-    /* This test validates that the deck is initialized with 52 cards.
+    /*
+     * This test validates that the deck is initialized with 52 cards.
      * It checks only the total count and does not validate uniqueness.
      * WILL PASS THIS TIME AS CODE LOGIC IS CORRECT
      */
@@ -27,7 +29,8 @@ public class DeckTest {
     }
 
     // Test to check for duplicates in the deck
-    /* This test validates that there are no duplicate cards in the deck.
+    /*
+     * This test validates that there are no duplicate cards in the deck.
      * WILL PASS THIS TIME AS CODE LOGIC IS CORRECT
      */
     @Test
@@ -44,7 +47,7 @@ public class DeckTest {
     // Both test cases will pass this time as the code logic is correct.
 
     // Added more test to check code logic
-        @Test
+    @Test
     void testDeckContainsOnlyCards() {
         Deck deck = new Deck();
         List<Card> cards = deck.getCards();
@@ -96,7 +99,21 @@ public class DeckTest {
         }
     }
 
+    // Added a failing test to verify that shuffle method changes the order of cards
+    // but total number of cards remains the same
+    // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT IMPLEMENTED SO TEST WILL NOT COMPILE
+    @Test
+    void testDeckShuffle() {
+        Deck deck = new Deck();
+        List<Card> originalOrder = new ArrayList<>(deck.getCards()); // Keep a copy of the original order
+
+        deck.shuffle(); // Shuffle the deck
+
+        // Check that the total number of cards remains the same
+        assertEquals(52, deck.getCards().size(), "Shuffled deck should still contain 52 cards.");
+
+        // Check that the order of cards has changed
+        assertNotEquals(originalOrder, deck.getCards(), "The order of cards should change after shuffling.");
+    }
 
 }
-
-
