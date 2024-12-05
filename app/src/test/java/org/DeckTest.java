@@ -101,21 +101,19 @@ public class DeckTest {
 
     // Added a failing test to verify that shuffle method changes the order of cards
     // but total number of cards remains the same
-    // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT CORRECT ONLY FIRST 2 CARDS SWAPPED
+    // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT CORRECT to verify if the shuffle affects a sufficient number of cards. 
+    // This will fail because the updated shuffle logic only changes the positions of a subset of the deck
     @Test
-    void testDeckShuffleFailsForPartialShuffle() {
+    void testDeckShuffleFailsForPartialImprovedShuffle() {
         Deck deck = new Deck();
         List<Card> originalOrder = new ArrayList<>(deck.getCards()); // Keep a copy of the original order
     
-        deck.shuffle(); // Shuffle with current logic (swapping first two cards)
+        deck.shuffle(); // Shuffle with updated logic (swapping every second card)
     
         // Check that the total number of cards remains the same
         assertEquals(52, deck.getCards().size(), "Shuffled deck should still contain 52 cards.");
     
-        // Check that more than just the first two cards have changed positions
-        boolean moreThanTwoChanged = false;
-    
-        // Count the number of cards that have moved
+        // Check how many cards have actually moved
         int changedPositions = 0;
         for (int i = 0; i < originalOrder.size(); i++) {
             if (!originalOrder.get(i).equals(deck.getCards().get(i))) {
@@ -123,13 +121,9 @@ public class DeckTest {
             }
         }
     
-        // At least more than two cards should have changed positions
-        if (changedPositions > 2) {
-            moreThanTwoChanged = true;
-        }
-    
-        assertTrue(moreThanTwoChanged, "Shuffle should affect more than just the first two cards.");
-    }
+        // Expect at least half the deck to have changed (26 cards) for a meaningful shuffle
+        assertTrue(changedPositions <= 26, "A proper shuffle should affect more than half the deck.");
+    }    
     
     
 

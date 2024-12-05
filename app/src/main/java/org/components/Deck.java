@@ -27,13 +27,13 @@ public class Deck {
 
     // Adding correct implementation of deck with 52 unique cards and no identical cards to see all tests pass.
 
-    // Placeholder for shuffle method
+    // Now making the shuffle method to swap every second card with the card that comes after it (if possible).
     public void shuffle() {
-        // Swap the first 2 cards
-        if (cards.size() > 1) {
-            Card temp = cards.get(0);
-            cards.set(0, cards.get(1));
-            cards.set(1, temp);
+        for (int i = 0; i < cards.size() - 1; i += 2) {
+            // Swap every second card with the next one
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(i + 1));
+            cards.set(i + 1, temp);
         }
     }
 }
