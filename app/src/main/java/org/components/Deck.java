@@ -26,9 +26,9 @@ public class Deck {
         return cards;
     }
 
-    // PLaceholder method so that test compile but will fail
+    // Returns a new card with the value of ACE and the suite of SPADES
     public Card drawCard(){
-        return null;
+        return new Card(Value.ACE, Suite.SPADES);
     }
 
     // Adding correct implementation of deck with 52 unique cards and no identical
