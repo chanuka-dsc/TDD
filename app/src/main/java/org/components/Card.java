@@ -22,6 +22,14 @@ public class Card {
     hidden = false;
   }
 
+  public Value getValue() {
+    return value;
+  }
+
+  public Suite getSuite() {
+    return suite;
+  }
+
   @Override
   public String toString() {
 

@@ -13,13 +13,17 @@ public class Deck {
     public Deck() {
         cards = new ArrayList<>();
 
-        // Still Incorrect implementation but minimal changes: now adds 52 but still identical cards
-        for (int i = 0; i < 52; i++) {
-            cards.add(new Card(Value.ACE, Suite.HEARTS));
+        // fixing the deck implementation to have 52 unique cards
+        for (Suite suite : Suite.values()) {
+            for (Value value : Value.values()) {
+                cards.add(new Card(value, suite));
+            }
         }
     }
 
     public List<Card> getCards() {
         return cards;
     }
+
+    // Adding correct implementation of deck with 52 unique cards and no identical cards to see all tests pass.
 }
