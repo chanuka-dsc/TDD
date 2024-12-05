@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.checkerframework.checker.units.qual.t;
 import org.components.Card;
 import org.components.Deck;
+import org.enums.Suite;
+import org.enums.Value;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -201,8 +203,17 @@ public class DeckTest {
         Card c = d.drawCard();
 
         d.addCard(c);
-
         assertTrue(d.getCards().contains(c));
     }
 
+    @Test
+    void testToAddCardToAFullDeck() {
+        Deck d = new Deck();
+        Card c = new Card(Value.ACE, Suite.CLUBS);
+
+        // You should not be able to add a card that exists or if the deck is full
+        assertFalse(d.addCard(c));
+        ;
+
+    }
 }
