@@ -29,6 +29,11 @@ public class Deck {
 
     // Placeholder for shuffle method
     public void shuffle() {
-        // Do nothing for now only for test to compile - will implement logic later
+        // Swap the first 2 cards
+        if (cards.size() > 1) {
+            Card temp = cards.get(0);
+            cards.set(0, cards.get(1));
+            cards.set(1, temp);
+        }
     }
 }

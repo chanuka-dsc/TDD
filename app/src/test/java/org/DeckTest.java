@@ -101,19 +101,36 @@ public class DeckTest {
 
     // Added a failing test to verify that shuffle method changes the order of cards
     // but total number of cards remains the same
-    // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT IMPLEMENTED YET BUT NOW TEST WILL COMPILE
+    // TEST WILL FAIL AS THE CODE FOR SHUFFLE METHOD IS NOT CORRECT ONLY FIRST 2 CARDS SWAPPED
     @Test
-    void testDeckShuffle() {
+    void testDeckShuffleFailsForPartialShuffle() {
         Deck deck = new Deck();
         List<Card> originalOrder = new ArrayList<>(deck.getCards()); // Keep a copy of the original order
-
-        deck.shuffle(); // Shuffle the deck
-
+    
+        deck.shuffle(); // Shuffle with current logic (swapping first two cards)
+    
         // Check that the total number of cards remains the same
         assertEquals(52, deck.getCards().size(), "Shuffled deck should still contain 52 cards.");
-
-        // Check that the order of cards has changed
-        assertNotEquals(originalOrder, deck.getCards(), "The order of cards should change after shuffling.");
+    
+        // Check that more than just the first two cards have changed positions
+        boolean moreThanTwoChanged = false;
+    
+        // Count the number of cards that have moved
+        int changedPositions = 0;
+        for (int i = 0; i < originalOrder.size(); i++) {
+            if (!originalOrder.get(i).equals(deck.getCards().get(i))) {
+                changedPositions++;
+            }
+        }
+    
+        // At least more than two cards should have changed positions
+        if (changedPositions > 2) {
+            moreThanTwoChanged = true;
+        }
+    
+        assertTrue(moreThanTwoChanged, "Shuffle should affect more than just the first two cards.");
     }
+    
+    
 
 }
