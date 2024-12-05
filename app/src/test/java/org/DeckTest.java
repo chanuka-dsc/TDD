@@ -176,5 +176,8 @@ public class DeckTest {
 
         assertNotNull(c);
 
+        // check if the card was taken from the deck
+        assertFalse(d.getCards().contains(c));
+
     }
 }
