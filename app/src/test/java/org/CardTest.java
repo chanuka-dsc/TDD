@@ -59,4 +59,5 @@ public class CardTest {
 
     assertEquals(card.getSuite(), Suite.DIAMONDS);
   }
+
 }
