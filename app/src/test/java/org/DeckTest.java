@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.components.Card;
 import org.components.Deck;
-import org.enums.Suite;
-import org.enums.Value;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -15,7 +13,7 @@ public class DeckTest {
 
     // Test the initialization of the deck
     /* This test validates that the deck is initialized with 52 cards.
-     * Test should now pass because the deck contains 52 cards despite being identical.
+     * It checks only the total count and does not validate uniqueness.
      */
     @Test
     void testDeckInitialization() {
@@ -23,18 +21,12 @@ public class DeckTest {
         Deck deck = new Deck();
 
         // Check that it has 52 cards
-        // It will now compile but fail because the deck doesn’t have 52 cards.
-        assertEquals(52, deck.getCards().size());
-
-        // Ensure all cards are unique
-        Set<Card> uniqueCards = new HashSet<>(deck.getCards());
-        assertEquals(52, uniqueCards.size());
+        assertEquals(52, deck.getCards().size(), "Deck should contain exactly 52 cards.");
     }
 
     // Test to check for duplicates in the deck
     /* This test validates that there are no duplicate cards in the deck.
-     * Test will not pass as it is condidering identical cards as 1 card.
-     * Shows some error in the test logic.
+     * It will fail because the current implementation produces 52 identical cards.
      */
     @Test
     void testDeckHasNoDuplicates() {
@@ -47,10 +39,5 @@ public class DeckTest {
         // Assert that the number of unique cards matches the total number of cards
         assertEquals(deck.getCards().size(), uniqueCards.size(), "Deck contains duplicate cards!");
     }
-
-    // Issue was that as using hashset to check for duplicates, it was not able to identify duplicates as the cards were identical.
-    // The test logic was incorrect as it was checking for duplicates in the deck which was not possible as the deck was initialized with identical cards.
-    // As by default, By default: hashCode() returns a unique value based on the object's memory reference and 
-    // equals() compares references (not the actual content) unless card class override them. Since the Card class doesn’t override these methods, 
-    // the HashSet considers all Card objects unique even if their Value and Suite are identical.
+    // Test of initialise deck with 52 cards pass as there are 52 identoical cards still 52 cards, but identical cards test fail as there are identical cards present.
 }
