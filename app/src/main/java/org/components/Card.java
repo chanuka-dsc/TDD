@@ -31,7 +31,7 @@ public class Card {
   }
 
   public int getScore() {
-    return 10;
+    return value.getScore();
   }
 
   @Override

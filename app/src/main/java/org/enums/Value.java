@@ -1,27 +1,33 @@
 package org.enums;
 
 public enum Value {
-  ACE("Ace"),
-  TWO("Two"),
-  THREE("Three"),
-  FOUR("Four"),
-  FIVE("Five"),
-  SIX("Six"),
-  SEVEN("Seven"),
-  EIGHT("Eight"),
-  NINE("Nine"),
-  TEN("Ten"),
-  JACK("Jack"),
-  QUEEN("Queen"),
-  KING("King");
+  ACE("Ace", 11),
+  TWO("Two", 2),
+  THREE("Three", 3),
+  FOUR("Four", 4),
+  FIVE("Five", 5),
+  SIX("Six", 6),
+  SEVEN("Seven", 7),
+  EIGHT("Eight", 8),
+  NINE("Nine", 9),
+  TEN("Ten", 10),
+  JACK("Jack", 10),
+  QUEEN("Queen", 10),
+  KING("King", 10);
 
   private final String displayName;
+  private final int score;
 
-  Value(String displayName) {
+  Value(String displayName, int score) {
     this.displayName = displayName;
+    this.score = score;
   }
 
   public String getDisplayName() {
     return this.displayName;
+  }
+
+  public int getScore() {
+    return this.score;
   }
 }
