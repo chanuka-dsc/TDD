@@ -42,7 +42,16 @@ public class Player {
 
     public int calcScore() {
 
-        return 21;
+        int score = 0;
+        for (Card c : hand) {
+            score += c.getScore();
+        }
+
+        if (score > 21 && hasAce()) {
+            score -= 10;
+        }
+
+        return score;
     }
 
 }
