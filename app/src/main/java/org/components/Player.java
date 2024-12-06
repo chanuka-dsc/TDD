@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class Player {
 
+    public ArrayList<Card> hand;
+
+    public Player() {
+        hand = new ArrayList<Card>();
+    }
+
     public ArrayList<Card> getHand() {
-        return new ArrayList<Card>();
+        return hand;
     }
 
     public void dealCard(Card c) {
+        hand.add(c);
     }
-       
+
 }
