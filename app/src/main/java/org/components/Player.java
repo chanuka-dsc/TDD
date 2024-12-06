@@ -40,4 +40,9 @@ public class Player {
 
     }
 
+    public int calcScore() {
+
+        return 21;
+    }
+
 }

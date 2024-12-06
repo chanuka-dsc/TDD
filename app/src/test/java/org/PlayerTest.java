@@ -83,18 +83,18 @@ public class PlayerTest {
     assertFalse(player.hasAce());
   }
 
-  // @Test
-  // void testCalcScore() {
-  //   Player player = new Player();
-  //   Card c = new Card(Value.ACE, Suite.SPADES);
-  //   Card c2 = new Card(Value.TEN, Suite.DIAMONDS);
-  //   Card c3 = new Card(Value.TEN, Suite.CLUBS);
-  //   player.dealCard(c);
-  //   player.dealCard(c2);
-  //   player.dealCard(c3);
+  @Test
+  void testCalcScore() {
+    Player player = new Player();
+    Card c = new Card(Value.ACE, Suite.SPADES);
+    Card c2 = new Card(Value.TEN, Suite.DIAMONDS);
+    Card c3 = new Card(Value.TEN, Suite.CLUBS);
+    player.dealCard(c);
+    player.dealCard(c2);
+    player.dealCard(c3);
 
-  //   int score = player.calcScore();
+    int score = player.calcScore();
 
-  //   assertEquals(score, 21);
-  // }
+    assertEquals(score, 21);
+  }
 }
