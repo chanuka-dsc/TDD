@@ -96,5 +96,25 @@ public class PlayerTest {
     int score = player.calcScore();
 
     assertEquals(score, 21);
+
+    player.clearHand();
+
+    c = new Card(Value.THREE, Suite.SPADES);
+    c2 = new Card(Value.FIVE, Suite.DIAMONDS);
+    c3 = new Card(Value.FOUR, Suite.CLUBS);
+    player.dealCard(c);
+    player.dealCard(c2);
+    player.dealCard(c3);
+
+    assertEquals(score, 12);
+
+    player.clearHand();
+
+    c = new Card(Value.ACE, Suite.SPADES);
+    c2 = new Card(Value.TEN, Suite.DIAMONDS);
+    player.dealCard(c);
+    player.dealCard(c2);
+
+    assertEquals(score, 21);
   }
 }
