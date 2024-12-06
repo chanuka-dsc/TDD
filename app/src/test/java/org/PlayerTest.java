@@ -95,7 +95,7 @@ public class PlayerTest {
 
     int score = player.calcScore();
 
-    assertEquals(score, 21);
+    assertEquals(21, score);
 
     player.clearHand();
 
@@ -106,7 +106,8 @@ public class PlayerTest {
     player.dealCard(c2);
     player.dealCard(c3);
 
-    assertEquals(score, 12);
+    int score2 = player.calcScore();
+    assertEquals(12, score2);
 
     player.clearHand();
 
@@ -114,7 +115,7 @@ public class PlayerTest {
     c2 = new Card(Value.TEN, Suite.DIAMONDS);
     player.dealCard(c);
     player.dealCard(c2);
-
-    assertEquals(score, 21);
+    int score3 = player.calcScore();
+    assertEquals(21, score3);
   }
 }
