@@ -22,4 +22,10 @@ public class Player {
         hand.clear();
     }
 
+    public void showHand() {
+        for (Card c : hand) {
+            c.show();;
+        }
+    }
+
 }
