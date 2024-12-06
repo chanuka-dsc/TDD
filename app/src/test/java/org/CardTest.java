@@ -68,6 +68,14 @@ public class CardTest {
     Card card = new Card(value, suite);
 
     assertEquals(card.getScore(), 10);
+
+    Suite suite2 = Suite.HEARTS;
+    Value value2 = Value.TWO;
+
+    Card card2 = new Card(value2, suite2);
+
+    assertEquals(card2.getScore(), 2);
+
   }
 
 }
