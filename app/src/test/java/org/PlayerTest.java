@@ -42,7 +42,6 @@ public class PlayerTest {
   }
 
   @Test
-
   void testClearHand() {
     Player player = new Player();
     Card c = new Card(Value.ACE, Suite.SPADES);
@@ -55,5 +54,21 @@ public class PlayerTest {
     assertEquals(player.getHand().size(), 3);
     player.clearHand();
     assertEquals(player.getHand().size(), 0);
+  }
+
+  @Test
+  void testShowHand() {
+    Player player = new Player();
+    Card c = new Card(Value.ACE, Suite.SPADES);
+    player.dealCard(c);
+
+    assertEquals(player.getHand().get(0).toString(), "Hidden");
+    player.showHand();
+    StringBuilder s = new StringBuilder();
+    s.append(c.getValue().getDisplayName());
+    s.append(" of ");
+    s.append(c.getSuite().getDisplayName());
+    assertEquals(player.getHand().get(0).toString(), s.toString());
+
   }
 }
