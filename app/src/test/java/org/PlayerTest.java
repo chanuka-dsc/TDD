@@ -1,6 +1,7 @@
 package org;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.components.Card;
@@ -70,5 +71,15 @@ public class PlayerTest {
     s.append(c.getSuite().getDisplayName());
     assertEquals(player.getHand().get(0).toString(), s.toString());
 
+  }
+
+  @Test
+  void testHasAce() {
+    Player player = new Player();
+    Card c = new Card(Value.ACE, Suite.SPADES);
+
+    assertTrue(player.hasAce());
+    player.clearHand();
+    assertFalse(player.hasAce());
   }
 }
