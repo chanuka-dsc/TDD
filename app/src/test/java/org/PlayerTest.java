@@ -28,5 +28,16 @@ public class PlayerTest {
 
     // dealt card should be in the hand of the player
     assertTrue(player.getHand().contains(c));
+    assertEquals(player.getHand().size(), 1);
+
+    Card c2 = new Card(Value.TEN, Suite.DIAMONDS);
+    player.dealCard(c2);
+    assertTrue(player.getHand().contains(c2));
+    assertEquals(player.getHand().size(), 2);
+
+    Card c3 = new Card(Value.KING, Suite.CLUBS);
+    player.dealCard(c3);
+    assertTrue(player.getHand().contains(c3));
+    assertEquals(player.getHand().size(), 3);
   }
 }
