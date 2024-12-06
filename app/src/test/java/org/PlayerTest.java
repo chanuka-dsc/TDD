@@ -40,4 +40,20 @@ public class PlayerTest {
     assertTrue(player.getHand().contains(c3));
     assertEquals(player.getHand().size(), 3);
   }
+
+  @Test
+
+  void testClearHand() {
+    Player player = new Player();
+    Card c = new Card(Value.ACE, Suite.SPADES);
+    Card c2 = new Card(Value.TEN, Suite.DIAMONDS);
+    Card c3 = new Card(Value.KING, Suite.CLUBS);
+    player.dealCard(c);
+    player.dealCard(c2);
+    player.dealCard(c3);
+
+    assertEquals(player.getHand().size(), 3);
+    player.clearHand();
+    assertEquals(player.getHand().size(), 0);
+  }
 }
