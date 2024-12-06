@@ -26,5 +26,7 @@ public class PlayerTest {
     Card c = new Card(Value.ACE, Suite.SPADES);
     player.dealCard(c);
 
+    // dealt card should be in the hand of the player
+    assertTrue(player.getHand().contains(c));
   }
 }
