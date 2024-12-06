@@ -60,4 +60,14 @@ public class CardTest {
     assertEquals(card.getSuite(), Suite.DIAMONDS);
   }
 
+  @Test
+  void testGetScore() {
+    Suite suite = Suite.DIAMONDS;
+    Value value = Value.KING;
+
+    Card card = new Card(value, suite);
+
+    assertEquals(card.getScore(), 10);
+  }
+
 }
