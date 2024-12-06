@@ -77,7 +77,7 @@ public class PlayerTest {
   void testHasAce() {
     Player player = new Player();
     Card c = new Card(Value.ACE, Suite.SPADES);
-
+    player.dealCard(c);
     assertTrue(player.hasAce());
     player.clearHand();
     assertFalse(player.hasAce());

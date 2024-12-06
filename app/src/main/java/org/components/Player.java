@@ -2,6 +2,8 @@ package org.components;
 
 import java.util.ArrayList;
 
+import org.enums.Value;
+
 public class Player {
 
     public ArrayList<Card> hand;
@@ -26,6 +28,16 @@ public class Player {
         for (Card c : hand) {
             c.show();;
         }
+    }
+
+    public boolean hasAce() {
+        for (Card c : hand) {
+            if (c.getValue() == Value.ACE) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
 }
