@@ -30,6 +30,10 @@ public class Card {
     return suite;
   }
 
+  public int getScore() {
+    return 10;
+  }
+
   @Override
   public String toString() {
 
