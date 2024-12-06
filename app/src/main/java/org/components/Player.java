@@ -18,4 +18,8 @@ public class Player {
         hand.add(c);
     }
 
+    public void clearHand() {
+        hand.clear();
+    }
+
 }
