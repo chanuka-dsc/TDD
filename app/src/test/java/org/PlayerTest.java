@@ -7,6 +7,8 @@ import org.enums.Suite;
 import org.enums.Value;
 import org.junit.jupiter.api.Test;
 
+import org.components.Player;
+
 public class PlayerTest {
 
   @Test
