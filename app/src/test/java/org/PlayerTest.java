@@ -19,4 +19,12 @@ public class PlayerTest {
     // player should have an empty hand
     assertTrue(player.getHand().size() == 0);
   }
+
+  @Test
+  void testDealCardToPlayer() {
+    Player player = new Player();
+    Card c = new Card(Value.ACE, Suite.SPADES);
+    player.dealCard(c);
+
+  }
 }
