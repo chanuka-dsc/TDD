@@ -8,5 +8,7 @@ public class Player {
         return new ArrayList<Card>();
     }
 
-    
+    public void dealCard(Card c) {
+    }
+       
 }
